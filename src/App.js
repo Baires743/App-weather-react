@@ -3,11 +3,12 @@ import './App.css';
 import Icons from './components/Icons';
 
 function App() {
-  const [search, setSearch] = useState('roma')
+  const [search, setSearch] = useState('lisboa')
   const [values, setValues] = useState('')
   const [icon, setIcon] = useState('')
 
-  const URL = `https://api.openweathermap.org/data/2.5/weather?q=${search}&lang=es&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+  const URL = `https://api.openweathermap.org/data/2.5/weather?q=${search}&lang=es&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
+
 
   const getData = async () => {
     await fetch(URL)
@@ -37,13 +38,15 @@ function App() {
   return (
     <>
     <div className="container">
-      <h2>React Weather App</h2>
+      <h1>Weather App </h1>
       <div className='row'>
-        <input 
-          onKeyDown={handleSearch}
-          type="text"          
-          autoFocus
-        />
+      <input 
+        onKeyDown={handleSearch}
+        type="text"          
+        autoFocus
+        placeholder="Ingrese una ciudad"
+       />
+
       </div>
     </div>
 
@@ -62,9 +65,11 @@ function App() {
       )}
 
     </div>
-
+      
     </>  
+    
   );
+  
 }
 
 export default App;
